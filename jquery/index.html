@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <style type="text/css">
+      .blue{
+        background-color: blue;
+      }
+      .orange{
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="kotak" class="orange">
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+    </div>
+    <button id="btn1">add</button>
+    <button id="btn2">remove</button>
+    <button id="btn3">toogle</button>
+    <div class="text">
+        asas
+    </div>
+    <p>
+      Aku adalah
+    </p>
+    <button id="pb">tes</button> <br>
+      <img src="kopi.jpg">
+      <button id="btn" name="oke" >sdsdsd</button>
+
+
+      <form>
+        <input type="text" name="nama" id="txtinput">
+        <input type="submit" value="submt">
+
+      </form>
+  </body>
+  <script>
+  //digunakan agar jquery kita tidak berjalan terlebih dahulu
+    $(function functionName() {
+      //selector
+      $("#btn").text('Klik Dong Om');
+      $("#btn").css('color', 'red');;
+      //bind digunakan untuk mengikat aksi dan reaksi,
+      // bisa juga langsung menggunakan clik(function)
+      $('img').bind('click', function() {
+        /* Act on the event */
+        $('img').css('height', '120');
+      });
+
+      $('img').bind('dblclick', function() {
+        /* Act on the event */
+        $('.text').text('Berubah');
+      });
+      //digunakan untuk even mouse enter dan muse leave
+      $('img').mouseenter('dblclick', function() {
+        /* Act on the event */
+        $('.text').text('Berubah');
+      });
+      $('img').mouseleave('dblclick', function() {
+        /* Act on the event */
+        $('.text').text('mous pergi');
+      });
+
+
+      //digunakan untuk  even get data dari form
+      $("form").submit(function(event) {
+        /* Act on the event */
+          alert($('#txtinput').val());
+      });
+
+      //digunakan untuk set data
+      $("#btn").click(function() {
+        /* Act on the event */
+        $('#txtinput').val('some text');
+      });
+
+
+      //menambahkan elemen baru
+
+      //remove dan empty
+      // remove menghapus elemen sedangkan empty mengkosongkan elemen
+
+      // menggunakan css dengan menggunakan jquery
+      $("#btn").click(function() {
+        /* Act on the event */
+        $('.text').css({
+          'color':'red',
+          'fontSize':'20px'
+        });
+      });
+
+
+      // class css
+      $("#btn1").click(function() {
+
+        /* Act on the event */
+        $("#kotak").addClass('blue');
+      });
+
+      $("#btn2").click(function() {
+        /* Act on the event */
+        $("#kotak").removeClass('orange');
+      });
+
+      //chaining artinya rantai metode dalam satu baris
+      $('#pb').click(function() {
+        // alet('sd');
+        /* Act on the event */
+        $('p').slideUp().slideDown().fadeIn().fadeOut();
+      });
+    });
+
+  </script>
+</html>
